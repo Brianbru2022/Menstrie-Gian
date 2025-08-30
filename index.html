@@ -150,61 +150,45 @@
         }
 
         /* New Layout Containers for Story and Dialogue */
-        /* New Layout Containers for Story and Dialogue */
-.story-paragraph-container {
-    text-align: left;
-    margin-top: 15px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-    .story-paragraph-container .icon {
-        float: left; /* Position icon to the left */
-        width: 24px;
-        height: 24px;
-        margin-right: 10px; /* Space between icon and text */
-        margin-bottom: 5px; /* Space below icon */
-    }
-
-        .story-paragraph-container .icon img {
+        .story-paragraph-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-align: left;
+            margin-top: 15px;
             width: 100%;
-            height: 100%;
+            box-sizing: border-box;
         }
 
-    .story-paragraph-container p {
-        margin: 0;
-        /* The text will now naturally wrap around the floated icon */
-    }
+            .story-paragraph-container .icon {
+                flex-shrink: 0;
+                width: 24px;
+                height: 24px;
+                margin-top: 5px;
+            }
 
-.dialogue-container {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: auto; /* Contains the floated child element */
-}
+                .story-paragraph-container .icon img {
+                    width: 100%;
+                    height: 100%;
+                }
 
-.dialogue-container .character-avatar {
-    float: left; /* Position avatar to the left */
-    width: 45px;   /* Smaller avatar */
-    height: 45px;  /* Smaller avatar */
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-right: 12px; /* Space between avatar and text */
-    margin-bottom: 4px; /* Space below avatar */
-}
+            .story-paragraph-container p {
+                margin: 0;
+                flex-grow: 1;
+            }
 
-.dialogue-container p {
-    margin: 0;
-    text-align: left;
-    font-style: italic;
-    /* The paragraph will now wrap the floated avatar */
-}
+        .dialogue-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+            box-sizing: border-box;
+        }
         /* Character-specific dialogue backgrounds */
         .dialogue-hazel {
             background-color: #FFF8DC;
@@ -495,9 +479,6 @@
             top: 0;
             left: 0;
         }
-
-
-        
 
         .progress-ring__circle {
             transition: stroke-dashoffset 0.5s;
@@ -1351,9 +1332,10 @@ function saveGameState() {
                     subtitle: "Clue #1",
                     cypherImage: '',
                     directions: [
-                        
-                        { type: "story", text: "Stay in the carpark and look around for some interesting information on Menstrie" }
-                        
+                        { type: "dialogue", character: "Hazel", text: "Forget the hilltop, Moo! The giant was clever, not a mountain goat. His first puzzle is right here." },
+                        { type: "story", text: "Hazel chuckles, giving a knowing glance your way, then trots to a huge, colourful sign near the edge of the car park, covered in maps and pictures." },
+                        { type: "story", text: "Moo, folding his map with a huff, follows behind." },
+                        { type: "dialogue", character: "Moo", text: "Hmph. Obvious, really. A classic misdirection. I was just testing you. Alright, Junior Detective, let's see what secrets this thing holds." }
                     ],
                     directionsImages: ['wait.jpg'],
                     clueStory: [
@@ -1386,8 +1368,9 @@ function saveGameState() {
                     subtitle: "Clue #2",
                     cypherImage: "",
                     directions: [
-                        { type: "story", text: "Stay in the same area and look for more interesting information on Menstrie" }
-                        
+                        { type: "story", text: "Moo, still muttering about missing sacks, nearly walks past the next clue." },
+                        { type: "dialogue", character: "Moo", text: "Aha! More giant-writing! It seems my initial theory about secret messages was correct all along." },
+                        { type: "story", text: "Hazel gives you a patient look, as if to say, 'Just let him have this one.'" }
                     ],
                     directionsImages: ["wait.jpg"],
                     clueStory: [
@@ -1414,15 +1397,13 @@ function saveGameState() {
                     subtitle: "Clue #3",
                     cypherImage: "",
                     directions: [
-                        { type: "story", text: "Stay in the carpark an look for a red metal post." }
-                       
-                    ],
-                    directionsImages: ["wait.jpg"],
-                    clueStory: [
                         { type: "story", text: "A few steps away, Moo lets out a gasp of discovery." },
                         { type: "dialogue", character: "Moo", text: "I've found it! The giant's lookout post!" },
                         { type: "story", text: "He rushes over to a tall, red metal pole bolted to the ground." },
                         { type: "dialogue", character: "Moo", text: "It's a special long-distance haggis-spotter! You use these handles to focus it. See? It's zooming in!" }
+                    ],
+                    directionsImages: ["wait.jpg"],
+                    clueStory: [
                         { type: "story", text: "Hazel watches, amused, as Moo energetically pumps away, peering intently at the distant hills." },
                         { type: "dialogue", character: "Hazel", text: "While Moo is busy with his... important work, I think I know what this is about. The giant saw humans using this strange 'red tree' and was completely bewildered. He couldn't understand why they would stop their journey to play with it. He decided to name one of his decoys after the problem this machine is designed to solve." }
                     ],
@@ -1449,8 +1430,8 @@ function saveGameState() {
                     subtitle: "Clue #4",
                     cypherImage: "",
                     directions: [
-                        
-                        { type: "story", text: "Head straight across the playing fields to gate near the primary school. <BR><BR> Imediately turn left and follow the path with the road on your right. <BR><BR> Continue round the bend and your next clue is on your left. " }
+                        { type: "dialogue", character: "Hazel", text: "Time for a walk!"},
+                        { type: "story", text: "You follow her instructions, leaving the car park behind and trotting across the wide playing fields. After passing through an opening beside the school, you turn left. The path curves gently to the right, and you find yourselves outside a place with a lawn so perfectly flat and green it looks like a snooker table." },
                         
                     ],
                     directionsImages: ["straight.jpg", "left.jpg", "right.jpg", "stop.jpg"],
@@ -1485,8 +1466,8 @@ function saveGameState() {
                     subtitle: "Clue #5",
                     cypherImage: "",
                     directions: [
-                        { type: "story", text: "Continue ahead with the road on the right. <BR><BR> Follow the road round to the left.  <BR><BR>Cross the road carefully and continue on the opposite pavement in the same direction. Continue until you find a low-level sign on two posts." }
-                        
+                        { type: "story", text: "You follow Hazel further along the path as it winds past the houses. After a short walk, she stops beside a patch of grass where a small, reddish marker stands on two metal poles." },
+                        { type: "dialogue", character: "Hazel", text: "The giant left his next puzzle right here." }
                     ],
                     directionsImages: ["left.jpg","straight.jpg","stop.jpg"],
                     clueStory: [
@@ -1515,9 +1496,12 @@ function saveGameState() {
                     subtitle: "Clue #6",
                     cypherImage: "",
                     directions:  [
-                        
-                        { type: "story", text: "With your back to the sign, turn left. <BR><BR> Follow the road to the end where you will find a set of steps. <BR><BR> At the bottom of the steps your next clue will be nearby."}
-                        
+                        { type: "dialogue", character: "Moo", text: "Another decoy dealt with!"},
+                        { type: "story", text: "Moo gives the little red marker a triumphant tap."},
+                        { type: "dialogue", character: "Moo", text: "My brilliant mind is getting sharper by the minute. Which way now, Hazel?"},
+                        { type: "dialogue", character: "Hazel", text: "Simple! Put the little red marker directly behind you, and we will turn left." },
+                        { type: "story", text: "She leads the team down the quiet street until it ends at a flight of steps leading down towards a wooded path." },
+                        { type: "dialogue", character: "Hazel", text: "The giant liked this spot. He left us another message on that big wooden post." }
                     ],
                     directionsImages: ["left.jpg","straight.jpg","left.jpg","stop.jpg"],
                     clueStory: [
@@ -1546,9 +1530,10 @@ function saveGameState() {
                     subtitle: "Clue #7",
                     cypherImage: "",
                     directions: [
-                        
-                        { type: "story", text: "With the steps behind you, turn right and continue along the path. <BR><BR>. Keep your eyes peeled for a strange looking metal tree sprouting from the bushes." },
-                        
+                        { type: "dialogue", character: "Hazel", text: "Right turn!" },
+                        { type: "story", text: "With the steps behind you, the three of you head right, along a path surrounded by lush greenery." },
+                        { type: "dialogue", character: "Hazel", text: "The giant liked this bit of the path. He said there was a strange metal tree that grew here." },
+                        { type: "story", text: "Sure enough, a short way along, you spot it: a tall, thin, silver pole rising from the bushes." }
                     ],
                     directionsImages: ["right.jpg", "straight.jpg", "wait.jpg"],
                     clueStory: [
@@ -1577,9 +1562,9 @@ function saveGameState() {
                     subtitle: "Clue #8",
                     cypherImage: "",
                     directions: [
-                        
-                        { type: "story", text: "Continue along the path in the same direction.  When the path meets a junction your next clue is nearby.  <BR><BR> Look out for a post like the one we seen before." }
-                        
+                        { type: "dialogue", character: "Moo", text: "Onwards!" },
+                        { type: "story", text: "Moo charges ahead down the path. You and Hazel follow at a more sensible pace. Just before the path meets a junction, you come to another wooden story post, almost identical to the last one." },
+                        { type: "dialogue", character: "Hazel", text: "Another message from the giant! Let's see what this one says." }
                     ],
                     directionsImages: ["straight.jpg","stop.jpg"],
                     clueStory: [
@@ -1609,9 +1594,10 @@ function saveGameState() {
                     subtitle: "Clue #9",
                     cypherImage: "",
                     directions: [
-                                                { type: "story", text: "Immediately after the post, turn right and look for a huge map of the whole area displayed on a stand." },
+                        { type: "dialogue", character: "Moo", text: "Onwards!" },
+                        { type: "story", text: "You and Hazel follow at a more sensible pace. Just before the path meets a junction, you come to a huge map of the whole area displayed on a stand." },
                         { type: "dialogue", character: "Moo", text: "Whoa. I think we need an expert." },
-                        
+                        { type: "story", text: "He looks at you expectantly." },
                     ],
                     directionsImages: ["straight.jpg","stop.jpg"],
                     clueStory: [
@@ -1641,8 +1627,10 @@ function saveGameState() {
                     subtitle: "Clue #10",
                     cypherImage: "",
                     directions: [
-                        { type: "story", text: "Continue along the path.<BR><BR> The path runs alongside a wide, grassy lawn that looks perfect for a picnic. <BR><BR> The giant sometimes stopped for a snack here. He left his next clue at his favourite resting spot. <BR><BR> A little further along, you see it — a sturdy-looking place to sit, with a fine view out over the countryside."}
-                        
+                        { type: "dialogue", character: "Hazel", text: "A right turn it is!" },
+                        { type: "story", text: "Hazel leads the way. The path runs alongside a wide, grassy lawn that looks perfect for a picnic."},
+                        { type: "dialogue", character: "Hazel", text: "The giant sometimes stopped for a snack here. He left his next clue at his favourite resting spot." },
+                        { type: "story", text: "A little further along, you see it — a sturdy-looking place to sit, with a fine view out over the countryside." }
                     ],
                     directionsImages: ["right.jpg","straight.jpg","wait.jpg"],
                     clueStory: [
