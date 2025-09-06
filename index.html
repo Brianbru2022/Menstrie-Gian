@@ -178,9 +178,6 @@
             }
 
         .dialogue-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
             margin-top: 10px;
             margin-bottom: 10px;
             padding: 15px;
@@ -188,6 +185,7 @@
             border: 1px solid #e0e0e0;
             width: 100%;
             box-sizing: border-box;
+            overflow: auto; /* This contains the floated element */
         }
         /* Character-specific dialogue backgrounds */
         .dialogue-hazel {
@@ -208,15 +206,17 @@
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
-            flex-shrink: 0;
             border: 2px solid #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            float: left; /* Make the avatar float to the left */
+            margin-right: 15px; /* Add space between the avatar and the text */
         }
 
         .dialogue-container p {
             margin: 0;
             text-align: left;
             font-style: italic;
+            /* This will now automatically wrap around the floated avatar */
         }
 
         /* Directional Arrows Styling */
