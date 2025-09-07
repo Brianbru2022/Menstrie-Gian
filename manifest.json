@@ -1,21 +1,37 @@
 {
   "name": "The Menstrie Giant",
   "short_name": "The Menstrie Giant",
-  "description": "A Menstrie Treasure Trail Game.",
-  "start_url": ".",
+  "description": "A Menstrie Treasure Trail Game. Solve riddles and follow the clues to find the Lost Gem of the Ochil Giant!",
+  "start_url": "/menstrie-gian/",
+  "id": "/menstrie-gian/",
+  "scope": "/menstrie-gian/",
   "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
   "background_color": "#fdfaf0",
   "theme_color": "#36454F",
+  "orientation": "portrait-primary",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "categories": [
+    "games",
+    "education",
+    "entertainment",
+    "kids"
+  ],
+  "iarc_rating_id": "YOUR_IARC_RATING_ID",
   "icons": [
     {
       "src": "icon.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "192x192"
     },
     {
       "src": "icon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "screenshots": [
@@ -24,14 +40,26 @@
       "sizes": "1280x720",
       "type": "image/jpeg",
       "form_factor": "wide",
-      "label": "Welcome Screen"
+      "label": "Welcome to The Menstrie Giant"
     },
     {
       "src": "clues.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "form_factor": "wide",
-      "label": "Clue Screen"
+      "label": "Solve the Clues"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "New Game",
+      "short_name": "New Game",
+      "description": "Start a new investigation from the beginning",
+      "url": "/menstrie-gian/?newGame=true",
+      "icons": [{ "src": "icon.png", "sizes": "192x192" }]
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 }
