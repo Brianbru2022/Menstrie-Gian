@@ -21,6 +21,14 @@
     "kids"
   ],
   "iarc_rating_id": "YOUR_IARC_RATING_ID",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.brianbru.menstriegiant",
+      "url": "https://play.google.com/store/apps/details?id=com.brianbru.menstriegiant"
+    }
+  ],
   "icons": [
     {
       "src": "icon.png",
@@ -48,6 +56,20 @@
       "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Solve the Clues"
+    },
+    {
+      "src": "intro.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Meet the Detectives"
+    },
+    {
+      "src": "story.jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Follow the Story"
     }
   ],
   "shortcuts": [
@@ -56,7 +78,12 @@
       "short_name": "New Game",
       "description": "Start a new investigation from the beginning",
       "url": "/menstrie-gian/?newGame=true",
-      "icons": [{ "src": "icon.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ],
   "launch_handler": {
